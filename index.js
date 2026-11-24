@@ -21,7 +21,7 @@ app.use("/api/v1/compras", comprasRouter);
 // Importa la documentación generada
 const swaggerFile = JSON.parse(readFileSync("./swagger-output.json"));
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () =>
   console.log(`🚀http://localhost:${PORT}/api-docs`),
 );
